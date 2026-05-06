@@ -1,5 +1,6 @@
+const API_BASE = "https://agropest-ai.onrender.com";
 async function postJSON(url, body){
-  const res = await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify(body)});
+  const res = await fetch(`${API_BASE}${url}`,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify(body)});
   const data = await res.json();
   if(!res.ok) throw new Error(data.error || 'Request failed');
   return data;
